@@ -49,10 +49,10 @@ export default class Editable extends React.Component {
           this.execCommand(e, 'removeFormat');
           return;
         case 'o':
-          this.execCommand(e, 'insertorderedlist');
+          this.execCommand(e, 'insertunorderedlist');
           return;
         case 'i':
-          this.execCommand(e, 'insertunorderedlist');
+          this.execCommand(e, 'insertorderedlist');
           return;
         case 'x':
           this.execCommand(e, 'strikethrough');
