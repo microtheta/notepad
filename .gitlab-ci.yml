@@ -8,8 +8,8 @@ cache:
 
 pages:
   script:
-    - npm install
-    - npm run build
+    - yarn
+    - yarn build
   artifacts:
     paths:
       - public
