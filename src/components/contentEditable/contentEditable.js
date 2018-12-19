@@ -28,13 +28,14 @@ export default class Editable extends React.Component {
   componentDidMount() {
     window.focus();
     this.editable.current.focus();
-    this.editable.current.addEventListener("keydown", this.eventHandler, false);
+    //this.editable.current.addEventListener("keydown", this.eventHandler, false);
+    window.document.addEventListener("keydown", this.eventHandler, false);
   }
 
   eventHandler = (e) => {
-
+    console.log(e)
     if (e.shiftKey && (e.metaKey || e.ctrlKey)) {
-      switch (e.key) {
+      switch (e.key.toLowerCase()) {
         case 'c':
           this.execCommand(e, 'justifycenter');
           return;
@@ -112,14 +113,13 @@ export default class Editable extends React.Component {
   printDoc = (e) => {
     if (window.print) {
       e.preventDefault();
-      window.document.title = "My Notes";
-      window.print();
+      /* window.document.title = "My Notes";
+      window.print(); */
+      const oPrntWin = window.open("","_blank","width=960,height=600,left=200,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
+      oPrntWin.document.open();
+      oPrntWin.document.write("<!doctype html><html><head><title>My Notes</title></head><body onload=\"print();\">" + this.editable.current.innerHTML + "</body></html>");
+      oPrntWin.document.close();
     }
-    /* console.log(this.lastHtml)
-    var oPrntWin = window.open("","_blank","width=960,height=600,left=200,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
-    oPrntWin.document.open();
-    oPrntWin.document.write("<!doctype html><html><head><title>My Notes</title></head><body onload=\"print();\">" + this.editable.current.innerHTML + "</body></html>");
-    oPrntWin.document.close(); */
   }
 
   render() {

@@ -14,3 +14,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.main-page {
+  transition: all .5s ease-in-out;
+  &.opened-sidebar {
+    margin-right: 300px;
+  }
+}

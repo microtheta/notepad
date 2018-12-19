@@ -1,0 +1,41 @@
+.sidebar {
+  * {
+    transition: all .5s ease-in-out;
+  }
+  .icon-text {
+    font-size: 26px;
+    cursor: pointer;
+    padding: 5px 15px;
+    color: #e8e8e8;
+  }
+  .close-icon {
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 0;
+    padding-right: 0;
+  }
+  .sidebar-container {
+    position: fixed;
+    overflow: auto;
+    right: -300px;
+    top: 0;
+    height: 100vh;
+    width: 300px;
+    border-left: 1px solid #e8e8e8; 
+    background: #fff;
+    &.open {
+      right: 0;
+    }
+  }
+  .opener {
+    position: fixed;
+    right: 0;
+    top: 0;
+    &.close {
+      right: -300px;
+    }
+    @media (hover: none) {
+      display: none;
+    }
+  }
+}
