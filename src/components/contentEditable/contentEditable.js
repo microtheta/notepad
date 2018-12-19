@@ -1,5 +1,5 @@
 import React from 'react';
-import './contentEditable.css';
+import './contentEditable.scss';
 
 export default class Editable extends React.Component {
 
