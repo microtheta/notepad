@@ -39,7 +39,7 @@ class IndexPage extends React.Component {
       <React.Fragment>
         <div className="container h-100">
           <div className="row h-100">
-            <div className={"col shadow-sm mt-md-1 mb-md-2 main-page " +(this.state.isOpen? 'opened-sidebar': '')}>
+            <div className={"col main-page " +(this.state.isOpen? 'opened-sidebar': '')}>
               <Editable html={this.state.html} onChange={this.handleChange} />
             </div>
           </div>
