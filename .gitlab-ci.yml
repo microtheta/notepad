@@ -12,6 +12,6 @@ pages:
     - yarn build
   artifacts:
     paths:
-      - public
+      - build
   only:
     - master
