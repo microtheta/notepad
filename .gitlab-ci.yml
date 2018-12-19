@@ -9,7 +9,7 @@ cache:
 pages:
   script:
     - npm install
-    - npm build
+    - npm run build
   artifacts:
     paths:
       - public
