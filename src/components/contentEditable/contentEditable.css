@@ -1,0 +1,12 @@
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  color: #dadada;
+  display: block;
+  font-size: 24px;
+}
+
+#editable {
+  font-size: 24px;
+  line-height: 1.3;
+}
