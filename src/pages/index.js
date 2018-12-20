@@ -6,26 +6,28 @@ import Sidebar from '../components/sidebar/sidebar';
 
 class IndexPage extends React.Component {
 
-  state = {
-    html: '',
-    isOpen: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      html: '',
+      isOpen: false
+    }
+    if (window) {
+      const notes = window.localStorage.getItem('notes') || '';
+      if (notes) {
+        this.state.html = notes;
+      }
+    }
   }
 
-  handleOpenClose = () => {
+  handleOpenClose = (e) => {
     this.setState({
       isOpen: !this.state.isOpen
     })
   }
 
   componentDidMount() {
-    if (window) {
-      const notes = window.localStorage.getItem('notes') || '';
-      if (notes) {
-        this.setState({
-          html: notes
-        })
-      }
-    }
+    
   }
 
   handleChange = (event) => {
