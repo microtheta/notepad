@@ -1,7 +1,7 @@
 import React from 'react';
-import Editable from '../components/contentEditable/contentEditable';
-import Sidebar from '../components/sidebar/sidebar';
-
+import Editable from '../../components/contentEditable/contentEditable';
+import Sidebar from '../../components/sidebar/sidebar';
+import moment from 'moment';
 
 
 class IndexPage extends React.Component {
@@ -13,7 +13,8 @@ class IndexPage extends React.Component {
       isOpen: false
     }
     if (window) {
-      const notes = window.localStorage.getItem('notes') || '';
+      const myNotes = JSON.parse(window.localStorage.getItem('myNotes')) || {[props.match.params.noteId]: {}};
+      const notes = myNotes[props.match.params.noteId]? myNotes[props.match.params.noteId].note : ''
       if (notes) {
         this.state.html = notes;
       }
@@ -32,8 +33,13 @@ class IndexPage extends React.Component {
 
   handleChange = (event) => {
     const { value } = event.target;
-    localStorage.setItem('notes', value);
     this.setState({ html: value });
+    const myNotes = JSON.parse(window.localStorage.getItem('myNotes')) || {};
+    myNotes[this.props.match.params.noteId] = {
+      note: value,
+      lastUpdated: moment()
+    }
+    localStorage.setItem('myNotes', JSON.stringify(myNotes));
   }
 
   render() {
