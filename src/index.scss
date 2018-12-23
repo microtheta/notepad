@@ -14,9 +14,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.pointer {
+  cursor: pointer;
+}
+
 .main-page {
   transition: all .5s ease-in-out;
   &.opened-sidebar {
     margin-right: 300px;
   }
+}
+.myNotesMenu {
+  position: fixed;
+  top: 65px;
+  right: 15px;
+  z-index: 1;
+  @media (hover: none) {
+    top: 15px;
+  }
+}
+.menu-bar {
+  width: 28px;
+  height: 3px;
+  display: block;
+  background-color: #e8e8e8;
+  margin: 5px 0;
 }

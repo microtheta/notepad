@@ -1,7 +1,8 @@
 import React from 'react';
 import './contentEditable.scss';
+import cuid from 'cuid';
 
-export default class Editable extends React.Component {
+class Editable extends React.Component {
 
   constructor(props) {
     super(props);
@@ -31,8 +32,39 @@ export default class Editable extends React.Component {
     window.document.addEventListener("keydown", this.eventHandler, false);
   }
 
+  componentWillUnmount() {
+    window.document.removeEventListener("keydown", this.eventHandler)
+  }
+
   eventHandler = (e) => {
-    if (e.shiftKey && (e.metaKey || e.ctrlKey)) {
+    if (e.altKey && (e.metaKey || e.ctrlKey)) {
+      switch (e.keyCode) {
+        case 48 || (48+48): 
+          this.execCommand(e, 'formatblock', 'div');
+          return;
+        case 49 || (49+48): 
+          this.execCommand(e, 'formatblock', 'h1');
+          return;
+        case 50 || (50+48): 
+          this.execCommand(e, 'formatblock', 'h2');
+          return;
+        case 51 || (51+48): 
+          this.execCommand(e, 'formatblock', 'h3');
+          return;
+        case 52 || (52+48): 
+          this.execCommand(e, 'formatblock', 'h4');
+          return;
+        case 53 || (53+48): 
+          this.execCommand(e, 'formatblock', 'h5');
+          return;
+        case 54 || (54+48): 
+          this.execCommand(e, 'formatblock', 'h6');
+          return;
+        default: 
+
+      }
+    }
+    if (e.shiftKey && (e.metaKey || e.ctrlKey) && !e.altKey) {
       switch (e.key.toLowerCase()) {
         case 'c':
           this.execCommand(e, 'justifycenter');
@@ -59,10 +91,20 @@ export default class Editable extends React.Component {
       }
     }
 
-    if (e.metaKey || e.ctrlKey) {
+    if (!e.shiftKey && (e.metaKey || e.ctrlKey) && !e.altKey) {
       switch (e.key) {
         case 'p':
           this.printDoc(e);
+          return;
+        case 'o':
+          this.goToMyNotes(e);
+          return;
+        case 'k':
+          this.createNew(e);
+          return;
+        case 'h':
+          e.preventDefault();
+          this.props.onSideBar(e);
           return;
         case 'b':
           this.execCommand(e, 'bold');
@@ -139,10 +181,22 @@ export default class Editable extends React.Component {
       /* window.document.title = "My Notes";
       window.print(); */
       const oPrntWin = window.open("", "_blank", "width=960,height=600,left=200,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
-      oPrntWin.document.open();
-      oPrntWin.document.write("<!doctype html><html><head><title>My Notes</title></head><body onload=\"print();\">" + this.editable.current.innerHTML + "</body></html>");
-      oPrntWin.document.close();
+      if(oPrntWin) {
+        oPrntWin.document.open();
+        oPrntWin.document.write("<!doctype html><html><head><title>My Notes</title></head><body onload=\"print();\">" + this.editable.current.innerHTML + "</body></html>");
+        oPrntWin.document.close();
+      }
     }
+  }
+
+  goToMyNotes = (e) => {
+    e.preventDefault();
+    this.props.history.push('/');
+  }
+
+  createNew = (e) => {
+    e.preventDefault();
+    this.props.history.push('/'+cuid.slug());
   }
 
   render() {
@@ -160,3 +214,5 @@ export default class Editable extends React.Component {
     )
   }
 }
+
+export default Editable;

@@ -16,6 +16,7 @@
   }
   .sidebar-container {
     position: fixed;
+    z-index: 1;
     overflow: auto;
     right: -300px;
     top: 0;
@@ -29,8 +30,8 @@
   }
   .opener {
     position: fixed;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 10px;
     &.close {
       right: -300px;
     }
