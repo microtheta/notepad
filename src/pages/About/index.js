@@ -18,7 +18,18 @@ export default class About extends React.Component {
           <div><br /></div>
           <div>My notes are always listed in recent order, that's good.</div>
         </div>
-        <div><br /></div>
+        <div>
+          <br />
+          <h1>Free Online Notepad - no login required</h1>
+            <div>
+              Best of all - microtheta notepad is a fast, clean, simple to use and FREE online web notepad.
+            </div>
+            <br />
+          <h1> Online notepad. Create note online </h1>
+          <div>
+            Online notepad. Free online notes app. No login required, no sign up required
+          </div>
+        </div>
       </div>
     )
   }

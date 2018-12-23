@@ -227,6 +227,17 @@ export default class Sidebar extends React.Component {
               </small>
             </li>
 
+            <li 
+              onMouseDown={this.preventDefault}
+              className="list-group-item list-group-item-action py-2 pointer">
+              <a href="mailTo:mahesh@microtheta.com">
+                <small className="d-block">
+                  <kbd>mahesh@microtheta.com</kbd>
+                  <div className="float-right">Feedback</div>
+                </small>
+              </a>
+            </li>
+
           </ul>
 
         </div>
