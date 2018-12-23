@@ -10,7 +10,11 @@ class Editable extends React.Component {
   }
 
   shouldComponentUpdate = (nextProps) => {
-    return nextProps.html !== this.editable.current.innerHTML;
+    if(nextProps.html !== this.editable.current.innerHTML) {
+      this.editable.current.innerHTML = nextProps.html;
+      return true;
+    }
+    return false
   }
 
   emitChange = () => {
@@ -200,6 +204,7 @@ class Editable extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div
         ref={this.editable}
@@ -210,7 +215,7 @@ class Editable extends React.Component {
         onBlur={this.emitChange}
         contentEditable="true"
         data-gramm_editor="false"
-        dangerouslySetInnerHTML={{ __html: this.props.html }}></div>
+        dangerouslySetInnerHTML={{ __html: this.props.html || '' }}></div>
     )
   }
 }

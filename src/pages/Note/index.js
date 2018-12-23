@@ -28,7 +28,7 @@ class IndexPage extends React.Component {
   static getDerivedStateFromProps(props, state) {
     if(state.noteId !== props.match.params.noteId) {
       const myNotes = JSON.parse(window.localStorage.getItem('myNotes')) || {[props.match.params.noteId]: {}};
-      const notes = myNotes[props.match.params.noteId]? myNotes[props.match.params.noteId].note : ''
+      const notes = myNotes[props.match.params.noteId]? (myNotes[props.match.params.noteId].note || '') : ''
       return {
         html: notes,
         noteId: props.match.params.noteId
