@@ -85,13 +85,13 @@ export default class MyNotes extends React.Component {
 
     return (
       <div className="container">
-        <div className="row">
+        <div className="row sticky-top">
 
-          <div className="container bg-white pt-3 mb-1 sticky-top">
+          <div className="container bg-white pt-3 mb-1 ">
             <h2 className="float-left text-dark">My Notes</h2>
             <Link to={'/' + cuid.slug()} className="btn btn-outline-primary float-right">Create New</Link>
             <div className="clearfix" />
-            <div className="form-group row mt-4">
+            <div className="form-group row mb-1 mt-4">
               <div className="col row m-0">
                 <input type="text" className="form-control col" value={searchText} onChange={this.handleSearch} placeholder="Search..." />
 
@@ -125,13 +125,6 @@ export default class MyNotes extends React.Component {
               </div>
             </div>
           </div>
-          {/* 
-          <div className="col bg-white pt-3 mb-2">
-            <h2 className="float-left text-dark">My Notes</h2>
-              <Link to={'/'+cuid.slug()} className="btn btn-outline-primary float-right">Create New</Link>
-            <div className="clearfix" />
-          </div>  */}
-
 
         </div>
         <div className="row">
