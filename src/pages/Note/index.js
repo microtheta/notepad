@@ -23,6 +23,9 @@ class IndexPage extends React.Component {
       }
     }
     this.sendEvent = this.sendEvent.bind(this);
+    if(window.gtag) {
+      window.gtag('config', 'UA-72768481-3');
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
