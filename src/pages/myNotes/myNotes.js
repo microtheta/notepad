@@ -85,14 +85,12 @@ export default class MyNotes extends React.Component {
 
     return (
       <div className="container">
-        <div className="row sticky-top">
-
-          <div className="container bg-white pt-3 mb-1 ">
-            <h2 className="float-left text-dark">My Notes</h2>
-            <Link to={'/' + cuid.slug()} className="btn btn-outline-primary float-right">Create New</Link>
-            <div className="clearfix" />
-            <div className="form-group row mb-1 mt-4">
-              <div className="col row m-0">
+        <div className="row sticky-top bg-white pt-3 pb-1 mb-2">
+          <div className="col-sm-2 col-4 d-none d-sm-flex">
+            <h2 className="text-dark m-0">My Notes</h2>
+          </div>
+              
+              <div className="col pr-0">
                 <input type="text" className="form-control col" value={searchText} onChange={this.handleSearch} placeholder="Search..." />
 
                 {/* <div className="btn-group col-4 col-sm-2 pr-0" role="group" aria-label="Basic example">
@@ -122,18 +120,27 @@ export default class MyNotes extends React.Component {
                   
                 </div>
                  */}
+              
+
+              
               </div>
-            </div>
-          </div>
+              <div className="col-sm-2 col-4">
+                <Link to={'/' + cuid.slug()} className="btn btn-outline-primary float-right">
+                <span className="d-none d-sm-inline">Create </span>
+                <span className="d-inline d-sm-none"> + </span>
+                New</Link>
+              </div>
+            
 
         </div>
+        
         <div className="row">
           <TransitionGroup enter component={null}>
             {
               sortedNotes.map((note) => (
                 <CSSTransition
                   key={note.noteId}
-                  timeout={500}
+                  timeout={300}
                   classNames="fade"
                 >
                   <div className="col-6 col-sm-4 col-md-3 my-3" key={note.noteId}>
@@ -144,8 +151,12 @@ export default class MyNotes extends React.Component {
                         </Link>
                       </div>
                       <div className="card-footer bg-white text-dark px-2 py-1">
-                        <small title="Last updated">{moment(note.lastUpdated).format('MMM DD, YYYY hh:MM A')}</small>
-                        <img title="Delete note" onClick={() => this.handleDelete(note.noteId)} alt="Delete" src={require("../../images/article.svg")} style={{ height: 16, cursor: 'pointer', marginTop: 3 }} className="float-right" />
+                      <div className="row m-0">
+                        <small className="col p-0 text-truncate" title="Last updated" style={{lineHeight: '160%'}}>{moment(note.lastUpdated).format('MMM DD, YYYY hh:MM A')}</small>
+                        <div className="col-1 p-0">
+                          <img  title="Delete note" onClick={() => this.handleDelete(note.noteId)} alt="Delete" src={require("../../images/article.svg")} style={{ height: 16, cursor: 'pointer', marginTop: -3 }} />
+                        </div>
+                        </div>
                       </div>
                     </div>
                   </div>
