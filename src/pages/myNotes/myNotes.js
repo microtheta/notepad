@@ -10,23 +10,8 @@ import {
 export default class MyNotes extends React.Component {
   constructor(props) {
     super(props);
-    const myNotes = JSON.parse(localStorage.getItem('myNotes'));
-    const allNotes = Object.keys(myNotes).map((noteId) => {
-      const note = myNotes[noteId];
-      note.noteId = noteId;
-      return note;
-    });
-    allNotes.sort((a, b) => {
-      if (moment(a.lastUpdated).isBefore(b.lastUpdated)) {
-        return 1;
-      } else if (moment(a.lastUpdated).isAfter(b.lastUpdated)) {
-        return -1;
-      }
-      return 0;
-    })
     this.state = {
-      myNotes: [...allNotes],
-      sortedNotes: allNotes,
+      sortedNotes: this.getSortedSearchNotes(localStorage.getItem('searchText') || ''),
       view: localStorage.getItem('preferredView') || 'grid',
       searchText: localStorage.getItem('searchText') || '',
     }
@@ -44,18 +29,7 @@ export default class MyNotes extends React.Component {
 
   handleSearch = (e) => {
     const searchText = e.target.value;
-    const {myNotes} = this.state;
-    const sortedNotes = myNotes.filter((note) => {
-      return (note.note.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
-    });
-    sortedNotes.sort((a, b) => {
-      if (moment(a.lastUpdated).isBefore(b.lastUpdated)) {
-        return 1;
-      } else if (moment(a.lastUpdated).isAfter(b.lastUpdated)) {
-        return -1;
-      }
-      return 0;
-    })
+    const sortedNotes = this.getSortedSearchNotes(searchText);
     this.setState({
       searchText,
       sortedNotes
@@ -66,18 +40,44 @@ export default class MyNotes extends React.Component {
   handleDelete = (noteId) => {
     const cnf = window.confirm('This can not be undone! Are you sure?');
     if (cnf) {
-      const { myNotes } = this.state;
+      const myNotes = JSON.parse(localStorage.getItem('myNotes')) || {};
       delete myNotes[noteId];
+      localStorage.setItem('myNotes', JSON.stringify(myNotes));
+      const sortedNotes = this.getSortedSearchNotes();
       this.setState({
-        myNotes
-      })
-      localStorage.setItem('myNotes', JSON.stringify(myNotes))
+        sortedNotes
+      });
     }
+  }
+
+  getSortedSearchNotes = (searchText=this.state.searchText) => {
+    const myNotes = JSON.parse(localStorage.getItem('myNotes'));
+    if(!myNotes) {
+      return [];
+    }
+    const allNotes = Object.keys(myNotes).map((noteId) => {
+      const note = myNotes[noteId];
+      note.noteId = noteId;
+      return note;
+    });
+    allNotes.sort((a, b) => {
+      if (moment(a.lastUpdated).isBefore(b.lastUpdated)) {
+        return 1;
+      } else if (moment(a.lastUpdated).isAfter(b.lastUpdated)) {
+        return -1;
+      }
+      return 0;
+    })
+    
+    const filteredNotes = allNotes.filter((note) => {
+      return (note.note.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
+    });
+    return filteredNotes;
   }
 
   render() {
     const { sortedNotes, /* view, */ searchText } = this.state;
-    if (!sortedNotes) {
+    if (!sortedNotes.length && !searchText) {
       return (
         <Redirect to={{ pathname: "/1" }} />
       )
