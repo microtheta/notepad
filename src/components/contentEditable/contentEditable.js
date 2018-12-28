@@ -41,10 +41,12 @@ class Editable extends React.Component {
   }
 
   eventHandler = (e) => {
+    e = e || window.event;
+    const keyCode = e.keyCode || e.which;
     if (e.altKey && (e.metaKey || e.ctrlKey)) {
-      switch (e.keyCode) {
+      switch (keyCode) {
         case 48 || (48+48): 
-          this.execCommand(e, 'formatblock', 'div');
+          this.execCommand(e, 'formatblock', 'p');
           return;
         case 49 || (49+48): 
           this.execCommand(e, 'formatblock', 'h1');
@@ -69,26 +71,26 @@ class Editable extends React.Component {
       }
     }
     if (e.shiftKey && (e.metaKey || e.ctrlKey) && !e.altKey) {
-      switch (e.key.toLowerCase()) {
-        case 'c':
+      switch (keyCode) {
+        case 67: //'c'
           this.execCommand(e, 'justifycenter');
           return;
-        case 'l':
+        case 76: //'l':
           this.execCommand(e, 'justifyleft');
           return;
-        case 'r':
+        case 82: //'r':
           this.execCommand(e, 'justifyright');
           return;
-        case 'a':
+        case 65: //'a':
           this.execCommand(e, 'removeFormat');
           return;
-        case 'o':
+        case 79: //'o':
           this.execCommand(e, 'insertunorderedlist');
           return;
-        case 'i':
+        case 73: //'i':
           this.execCommand(e, 'insertorderedlist');
           return;
-        case 'x':
+        case 88: //'x':
           this.execCommand(e, 'strikethrough');
           return;
         default:
@@ -96,33 +98,33 @@ class Editable extends React.Component {
     }
 
     if (!e.shiftKey && (e.metaKey || e.ctrlKey) && !e.altKey) {
-      switch (e.key) {
-        case 'p':
+      switch (keyCode) {
+        case 80: //'p':
           this.printDoc(e);
           return;
-        case 'o':
+        case 79: //'o':
           this.goToMyNotes(e);
           return;
-        case 'k':
+        case 75: //'k':
           this.createNew(e);
           return;
-        case 'h':
+        case 72: //'h':
           e.preventDefault();
           this.props.onSideBar(e);
           return;
-        case 'b':
+        case 66://'b':
           this.execCommand(e, 'bold');
           return;
-        case 'i':
+        case 73: //'i':
           this.execCommand(e, 'italic');
           return;
-        case 'u':
+        case 85: //'u':
           this.execCommand(e, 'underline');
           return;
-        case 'z':
+        case 90: //'z':
           this.execCommand(e, 'undo');
           return;
-        case 'y':
+        case 89: //'y':
           this.execCommand(e, 'redo');
           return;
         default:
@@ -130,16 +132,16 @@ class Editable extends React.Component {
     }
 
     if (e.shiftKey) {
-      switch (e.key) {
-        case 'Tab':
+      switch (keyCode) {
+        case 9: //'Tab':
           this.execCommand(e, 'outdent');
           return;
         default:
       }
     }
 
-    switch (e.key) {
-      case 'Tab':
+    switch (keyCode) {
+      case 9: //'Tab':
         this.execCommand(e, 'indent');
         return;
       default:

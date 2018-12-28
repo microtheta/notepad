@@ -47,7 +47,7 @@ export default class Sidebar extends React.Component {
             </li>
 
             <li 
-              onClick={() => {this.sendEvent('h', true, false)}}
+              onClick={() => {this.sendEvent('h', true, false, false, 72)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>h</kbd></kbd>
@@ -56,7 +56,7 @@ export default class Sidebar extends React.Component {
             </li>
 
             <li 
-              onClick={() => {this.sendEvent('o', true, false)}}
+              onClick={() => {this.sendEvent('o', true, false, false, 79)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>o</kbd></kbd>
@@ -65,7 +65,7 @@ export default class Sidebar extends React.Component {
             </li>
             
             <li 
-              onClick={() => {this.sendEvent('k', true, false)}}
+              onClick={() => {this.sendEvent('k', true, false, false, 75)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>k</kbd></kbd>
@@ -77,7 +77,7 @@ export default class Sidebar extends React.Component {
             
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('b', true, false)}}
+              onClick={() => {this.sendEvent('b', true, false, false, 66)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>b</kbd></kbd>
@@ -86,7 +86,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('i', true, false)}}
+              onClick={() => {this.sendEvent('i', true, false, false, 73)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>i</kbd></kbd>
@@ -95,7 +95,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('u', true, false)}}
+              onClick={() => {this.sendEvent('u', true, false, false, 85)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>u</kbd></kbd>
@@ -104,7 +104,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('x', true, true)}}
+              onClick={() => {this.sendEvent('x', true, true, false, 88)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>x</kbd></kbd>
@@ -114,7 +114,7 @@ export default class Sidebar extends React.Component {
 
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('l', true, true)}}
+              onClick={() => {this.sendEvent('l', true, true, false, 76)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>l</kbd></kbd>
@@ -123,7 +123,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('c', true, true)}}
+              onClick={() => {this.sendEvent('c', true, true, false, 67)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>c</kbd></kbd>
@@ -132,7 +132,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('r', true, true)}}
+              onClick={() => {this.sendEvent('r', true, true, false, 82)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>r</kbd></kbd>
@@ -144,7 +144,7 @@ export default class Sidebar extends React.Component {
 
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('o', true, true)}}
+              onClick={() => {this.sendEvent('o', true, true, false, 79)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>o</kbd></kbd>
@@ -153,7 +153,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('i', true, true)}}
+              onClick={() => {this.sendEvent('i', true, true, false, 73)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>i</kbd></kbd>
@@ -182,7 +182,7 @@ export default class Sidebar extends React.Component {
 
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('Tab', false, false)}}
+              onClick={() => {this.sendEvent('Tab', false, false, false, 9)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>tab</kbd></kbd>
@@ -191,7 +191,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('Tab', false, true)}}
+              onClick={() => {this.sendEvent('Tab', false, true, false, 9)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>shift</kbd>+<kbd>tab</kbd></kbd>
@@ -201,7 +201,7 @@ export default class Sidebar extends React.Component {
 
             <li
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('p', true, false)}}
+              onClick={() => {this.sendEvent('p', true, false, false, 80)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>p</kbd></kbd>
@@ -210,7 +210,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li 
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('z', true, false)}}
+              onClick={() => {this.sendEvent('z', true, false, false, 90)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>z</kbd></kbd>
@@ -219,7 +219,7 @@ export default class Sidebar extends React.Component {
             </li>
             <li 
               onMouseDown={this.preventDefault}
-              onClick={() => {this.sendEvent('y', true, false)}}
+              onClick={() => {this.sendEvent('y', true, false, false, 89)}}
               className="list-group-item list-group-item-action py-2 pointer">
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>y</kbd></kbd>
