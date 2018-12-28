@@ -86,7 +86,7 @@ export default class MyNotes extends React.Component {
     return (
       <div className="container">
         <div className="row sticky-top bg-white pt-3 pb-1 mb-2">
-          <div className="col-sm-2 col-4 d-none d-sm-flex">
+          <div className="col-sm-2 col-4 d-none d-md-flex">
             <h2 className="text-dark m-0">My Notes</h2>
           </div>
               
@@ -124,7 +124,7 @@ export default class MyNotes extends React.Component {
 
               
               </div>
-              <div className="col-sm-2 col-4">
+              <div className="col-sm-3 col-md-2 col-4">
                 <Link to={'/' + cuid.slug()} className="btn btn-outline-primary float-right">
                 <span className="d-none d-sm-inline">Create </span>
                 <span className="d-inline d-sm-none"> + </span>
