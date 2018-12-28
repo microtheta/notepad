@@ -145,7 +145,7 @@ export default class MyNotes extends React.Component {
                       </div>
                       <div className="card-footer bg-white text-dark px-2 py-1">
                         <small title="Last updated">{moment(note.lastUpdated).format('MMM DD, YYYY hh:MM A')}</small>
-                        <img title="Delete note" onClick={() => this.handleDelete(note.noteId)} alt="Delete" src="/images/article.svg" style={{ height: 16, cursor: 'pointer', marginTop: 3 }} className="float-right" />
+                        <img title="Delete note" onClick={() => this.handleDelete(note.noteId)} alt="Delete" src={require("../../images/article.svg")} style={{ height: 16, cursor: 'pointer', marginTop: 3 }} className="float-right" />
                       </div>
                     </div>
                   </div>
