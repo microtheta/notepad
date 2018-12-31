@@ -7,6 +7,9 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 
+import './myNotes.scss';
+
+
 export default class MyNotes extends React.Component {
   constructor(props) {
     super(props);
@@ -147,7 +150,7 @@ export default class MyNotes extends React.Component {
                     <div className="card h-100">
                       <div className="card-body p-0" style={{ height: 150, overflow: 'hidden' }}>
                         <Link to={'/' + note.noteId} className="list-group-item p-2 list-group-item-action border-0 h-100">
-                          <div dangerouslySetInnerHTML={{ __html: note.note }} style={{ transform: 'scale(0.5)', transformOrigin: '10px 10px', width: '200%' }} />
+                          <div dangerouslySetInnerHTML={{ __html: note.note }} className="notes-container"/>
                         </Link>
                       </div>
                       <div className="card-footer bg-white text-dark px-2 py-1">

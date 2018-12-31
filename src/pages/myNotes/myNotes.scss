@@ -1,0 +1,11 @@
+.notes-container {
+  transform: scale(0.6);
+  transform-origin: 10px 10px 0px;
+  width: 160%;
+  min-height: 160%;
+  &:hover {
+    transform: scale(0.95);
+    width: 105%;
+    min-height: 105%;
+  }
+}
