@@ -149,7 +149,7 @@ export default class MyNotes extends React.Component {
                   <div className="col-6 col-sm-4 col-md-3 my-3" key={note.noteId}>
                     <div className="card h-100">
                       <div className="card-body p-0" style={{ height: 150, overflow: 'hidden' }}>
-                        <Link to={'/' + note.noteId} className="list-group-item p-2 list-group-item-action border-0 h-100">
+                        <Link to={'/' + note.noteId} className="list-group-item p-2 list-group-item-action border-0 h-100" id="notes-link">
                           <div dangerouslySetInnerHTML={{ __html: note.note }} className="notes-container"/>
                         </Link>
                       </div>
