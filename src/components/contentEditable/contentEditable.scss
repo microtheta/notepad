@@ -5,6 +5,11 @@
   display: block;
   font-size: 22px;
 }
+.darkmode {
+  [contenteditable=true]:empty:before {
+    color: #4a4a4a;
+  }
+}
 
 #editable {
   font-size: 22px;

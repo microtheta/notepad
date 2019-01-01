@@ -7,6 +7,8 @@ import {
   TransitionGroup,
 } from 'react-transition-group';
 
+import deleteIcon from './deleteIcon';
+
 import './myNotes.scss';
 
 
@@ -17,6 +19,7 @@ export default class MyNotes extends React.Component {
       sortedNotes: this.getSortedSearchNotes(localStorage.getItem('searchText') || ''),
       view: localStorage.getItem('preferredView') || 'grid',
       searchText: localStorage.getItem('searchText') || '',
+      darkMode: window.localStorage.getItem('darkMode') || false
     }
     if (window.gtag) {
       window.gtag('config', 'UA-72768481-3');
@@ -87,86 +90,88 @@ export default class MyNotes extends React.Component {
     }
 
     return (
-      <div className="container">
-        <div className="row sticky-top bg-white pt-3 pb-1 mb-2">
-          <div className="col-sm-2 col-4 d-none d-md-flex">
-            <h2 className="text-dark m-0">My Notes</h2>
-          </div>
-              
-              <div className="col pr-0">
-                <input type="text" className="form-control col" value={searchText} onChange={this.handleSearch} placeholder="Search..." />
+      <div className={"container-fluid min-vh-100 " + (this.state.darkMode ? 'darkmode' : '' )}>
+        <div className="container">
+          <div className={"row sticky-top pt-3 pb-1 mb-2 " + (this.state.darkMode ? 'darkmode' : 'bg-white' )}>
+            <div className="col-sm-2 col-4 d-none d-md-flex">
+              <h2 className="m-0">My Notes</h2>
+            </div>
+                
+                <div className="col pr-0">
+                  <input type="text" className={"form-control col " + (this.state.darkMode ? 'border-0' : '' )} value={searchText} onChange={this.handleSearch} placeholder="Search..." />
 
-                {/* <div className="btn-group col-4 col-sm-2 pr-0" role="group" aria-label="Basic example">
-                  
-                <button type="button" 
-                  onClick={() => this.setView('grid')}
-                  className={"btn btn-outline-secondary grid-view-menu " + (view === 'grid' ? 'active' : '')}>
-                    <span href="" className="grid-icon grid-icon--line2">
-                      <span className="layer layer--primary">
-                        <span></span><span></span>
+                  {/* <div className="btn-group col-4 col-sm-2 pr-0" role="group" aria-label="Basic example">
+                    
+                  <button type="button" 
+                    onClick={() => this.setView('grid')}
+                    className={"btn btn-outline-secondary grid-view-menu " + (view === 'grid' ? 'active' : '')}>
+                      <span href="" className="grid-icon grid-icon--line2">
+                        <span className="layer layer--primary">
+                          <span></span><span></span>
+                        </span>
+                        <span className="layer layer--secondary">
+                          <span></span><span></span>
+                        </span>
                       </span>
-                      <span className="layer layer--secondary">
-                        <span></span><span></span>
+                    </button>
+                    
+                    <button type="button"
+                      onClick={() => this.setView('list')}
+                      className={"btn btn-outline-secondary list-view-menu " + (view === 'list' ? 'active' : '')}>
+                      <span className="text-center ">
+                        <span className="menu-bar" />
+                        <span className="menu-bar" />
+                        <span className="menu-bar" />
                       </span>
-                    </span>
-                  </button>
-                  
-                  <button type="button"
-                    onClick={() => this.setView('list')}
-                    className={"btn btn-outline-secondary list-view-menu " + (view === 'list' ? 'active' : '')}>
-                    <span className="text-center ">
-                      <span className="menu-bar" />
-                      <span className="menu-bar" />
-                      <span className="menu-bar" />
-                    </span>
-                  </button>
-                  
+                    </button>
+                    
+                  </div>
+                  */}
+                
+
+                
                 </div>
-                 */}
+                <div className="col-sm-3 col-md-2 col-4">
+                  <Link to={'/' + cuid.slug()} className={"btn float-right btn-outline-"+ (this.state.darkMode ? 'light' : 'primary' )}>
+                  <span className="d-none d-sm-inline">Create </span>
+                  <span className="d-inline d-sm-none"> + </span>
+                  New</Link>
+                </div>
               
 
-              
-              </div>
-              <div className="col-sm-3 col-md-2 col-4">
-                <Link to={'/' + cuid.slug()} className="btn btn-outline-primary float-right">
-                <span className="d-none d-sm-inline">Create </span>
-                <span className="d-inline d-sm-none"> + </span>
-                New</Link>
-              </div>
-            
-
-        </div>
-        
-        <div className="row">
-          <TransitionGroup enter component={null}>
-            {
-              sortedNotes.map((note) => (
-                <CSSTransition
-                  key={note.noteId}
-                  timeout={300}
-                  classNames="fade"
-                >
-                  <div className="col-6 col-sm-4 col-md-3 my-3" key={note.noteId}>
-                    <div className="card h-100">
-                      <div className="card-body p-0" style={{ height: 150, overflow: 'hidden' }}>
-                        <Link to={'/' + note.noteId} className="list-group-item p-2 list-group-item-action border-0 h-100" id="notes-link">
-                          <div dangerouslySetInnerHTML={{ __html: note.note }} className="notes-container"/>
-                        </Link>
-                      </div>
-                      <div className="card-footer bg-white text-dark px-2 py-1">
-                      <div className="row m-0">
-                        <small className="col p-0 text-truncate" title="Last updated" style={{lineHeight: '160%'}}>{moment(note.lastUpdated).format('MMM DD, YYYY hh:MM A')}</small>
-                        <div className="col-1 p-0">
-                          <img  title="Delete note" onClick={() => this.handleDelete(note.noteId)} alt="Delete" src={require("../../images/article.svg")} style={{ height: 16, cursor: 'pointer', marginTop: -3 }} />
+          </div>
+          
+          <div className="row">
+            <TransitionGroup enter component={null}>
+              {
+                sortedNotes.map((note) => (
+                  <CSSTransition
+                    key={note.noteId}
+                    timeout={300}
+                    classNames="fade"
+                  >
+                    <div className="col-6 col-sm-4 col-md-3 my-3" key={note.noteId}>
+                      <div className="card h-100">
+                        <div className="card-body p-0" style={{ height: 150, overflow: 'hidden' }}>
+                          <Link to={'/' + note.noteId} className={"list-group-item p-2 list-group-item-action border-0 h-100 "+ (this.state.darkMode ? 'darkmode' : '' )} id="notes-link">
+                            <div dangerouslySetInnerHTML={{ __html: note.note }} className="notes-container"/>
+                          </Link>
                         </div>
+                        <div className={"card-footer px-2 py-1 "+ (this.state.darkMode ? 'darkmode' : 'bg-white text-dark' )}>
+                        <div className="row m-0">
+                          <small className="col p-0 text-truncate" title="Last updated" style={{lineHeight: '160%'}}>{moment(note.lastUpdated).format('MMM DD, YYYY hh:MM A')}</small>
+                          <div className="col-1 p-0">
+                            <span className="uk-icon"  title="Delete note" onClick={() => this.handleDelete(note.noteId)} alt="Delete" style={{ height: 16, cursor: 'pointer', marginTop: -3 }}  dangerouslySetInnerHTML={{__html: deleteIcon}} />
+                          </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </CSSTransition>
-              ))
-            }
-          </TransitionGroup>
+                  </CSSTransition>
+                ))
+              }
+            </TransitionGroup>
+          </div>
         </div>
       </div>
     )

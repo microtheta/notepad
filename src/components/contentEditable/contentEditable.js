@@ -66,6 +66,9 @@ class Editable extends React.Component {
         case 54 || (54+48): 
           this.execCommand(e, 'formatblock', 'h6');
           return;
+        case 86: 
+          this.props.toggleMode();
+          return;
         default: 
 
       }

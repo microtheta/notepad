@@ -13,3 +13,31 @@
     min-height: 105%; */
   }
 }
+
+.uk-icon {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  padding: 0;
+  background-color: transparent;
+  display: inline-block;
+  fill: currentcolor;
+  line-height: 0
+}
+
+
+.uk-icon:not(.uk-preserve) [fill*='#']:not(.uk-preserve) {
+  fill: currentcolor
+}
+
+.uk-icon:not(.uk-preserve) [stroke*='#']:not(.uk-preserve) {
+  stroke: currentcolor
+}
+
+.uk-icon>* {
+  transform: translate(0, 0)
+}

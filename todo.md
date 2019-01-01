@@ -1,6 +1,6 @@
 
 ## TODO List
-  - [ ] Dark mode
+  - [X] Dark mode
   - [ ] Archived notes
   - [ ] Better delete confirmation box
   - [ ] Create new shortcut key on listing page

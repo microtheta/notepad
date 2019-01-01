@@ -38,7 +38,7 @@ export default class Sidebar extends React.Component {
           <ul className="list-group list-group-flush">
 
 
-            <li className="list-group-item list-group-item-action  bg-light sticky-top py-2">
+            <li className={"list-group-item list-group-item-action sticky-top py-2 "+ (this.props.darkMode ? 'text-light bg-dark' : 'bg-light')}>
               <span>Quick Edit</span>
               <div 
                 className="float-right icon-text close-icon"
@@ -48,7 +48,7 @@ export default class Sidebar extends React.Component {
 
             <li 
               onClick={() => {this.sendEvent('h', true, false, false, 72)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>h</kbd></kbd>
                 <div className="float-right">Quick Edit Panel</div>
@@ -57,7 +57,7 @@ export default class Sidebar extends React.Component {
 
             <li 
               onClick={() => {this.sendEvent('o', true, false, false, 79)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>o</kbd></kbd>
                 <div className="float-right">My Notes</div>
@@ -66,7 +66,7 @@ export default class Sidebar extends React.Component {
             
             <li 
               onClick={() => {this.sendEvent('k', true, false, false, 75)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>k</kbd></kbd>
                 <div className="float-right">Create New</div>
@@ -78,7 +78,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('b', true, false, false, 66)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>b</kbd></kbd>
                 <b className="float-right">Bold</b>
@@ -87,7 +87,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('i', true, false, false, 73)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>i</kbd></kbd>
                 <i className="float-right">Italics</i>
@@ -96,7 +96,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('u', true, false, false, 85)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>u</kbd></kbd>
                 <u className="float-right">Underline</u>
@@ -105,7 +105,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('x', true, true, false, 88)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>x</kbd></kbd>
                 <div style={{ textDecorationLine: 'line-through' }} className="float-right">Strikethrough</div>
@@ -115,7 +115,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('l', true, true, false, 76)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>l</kbd></kbd>
                 <div className="float-right">Left Align</div>
@@ -124,7 +124,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('c', true, true, false, 67)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>c</kbd></kbd>
                 <div className="float-right">Center Align</div>
@@ -133,7 +133,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('r', true, true, false, 82)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>r</kbd></kbd>
                 <div className="float-right">Right Align</div>
@@ -145,7 +145,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('o', true, true, false, 79)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>o</kbd></kbd>
                 <div className="float-right">Bulleted List</div>
@@ -154,7 +154,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('i', true, true, false, 73)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>shift</kbd>+<kbd>i</kbd></kbd>
                 <div className="float-right">Numbered List</div>
@@ -164,7 +164,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('', true, false, true, 49)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>alt</kbd>+<kbd>1...6</kbd></kbd>
                 <div className="float-right">Header 1...6</div>
@@ -173,7 +173,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('', true, false, true, 48)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>alt</kbd>+<kbd>0</kbd></kbd>
                 <div className="float-right">Normal Text</div>
@@ -183,7 +183,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('Tab', false, false, false, 9)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>tab</kbd></kbd>
                 <div className="float-right">Indent</div>
@@ -192,7 +192,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('Tab', false, true, false, 9)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>shift</kbd>+<kbd>tab</kbd></kbd>
                 <div className="float-right">Outdent</div>
@@ -202,7 +202,7 @@ export default class Sidebar extends React.Component {
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('p', true, false, false, 80)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>p</kbd></kbd>
                 <div className="float-right">Print</div>
@@ -211,7 +211,7 @@ export default class Sidebar extends React.Component {
             <li 
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('z', true, false, false, 90)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>z</kbd></kbd>
                 <div className="float-right">Undo</div>
@@ -220,7 +220,7 @@ export default class Sidebar extends React.Component {
             <li 
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('y', true, false, false, 89)}}
-              className="list-group-item list-group-item-action py-2 pointer">
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
                 <kbd><kbd>{cmKey}</kbd>+<kbd>y</kbd></kbd>
                 <div className="float-right">Redo</div>
@@ -229,7 +229,17 @@ export default class Sidebar extends React.Component {
 
             <li 
               onMouseDown={this.preventDefault}
-              className="list-group-item list-group-item-action py-2 pointer">
+              onClick={() => {this.sendEvent('v', true, false, true, 86)}}
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
+              <small className="d-block">
+                <kbd><kbd>{cmKey}</kbd>+<kbd>alt</kbd>+<kbd>v</kbd></kbd>
+                <div className="float-right">Toggle visibility mode</div>
+              </small>
+            </li>
+
+            <li 
+              onMouseDown={this.preventDefault}
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <a href="mailTo:mahesh@microtheta.com">
                 <small className="d-block">
                   <kbd>mahesh@microtheta.com</kbd>

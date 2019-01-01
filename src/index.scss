@@ -276,3 +276,13 @@ select.form-control:not([size]):not([multiple]) {
   transform: scale(0);
   transition: all 300ms ease-in;
 }
+
+.darkmode {
+  color: #fff;
+  background: #000;
+  border-color: #fff;
+  &:hover.list-group-item-action {
+    background: rgb(31, 31, 31);
+    color: #fff;
+  }
+}
