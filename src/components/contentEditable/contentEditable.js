@@ -217,7 +217,7 @@ class Editable extends React.Component {
         placeholder="Type here..."
         style={{ minHeight: '100%', outline: 0, padding: 20 }}
         onInput={this.emitChange}
-        onBlur={this.emitChange}
+        /* onBlur={this.emitChange} */
         contentEditable="true"
         data-gramm_editor="false"
         dangerouslySetInnerHTML={{ __html: this.props.html || '' }}></div>

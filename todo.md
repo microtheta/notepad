@@ -6,6 +6,6 @@
   - [ ] Create new shortcut key on listing page
   - [ ] Checkbox list
   - [ ] Code snippet via markdown?
-  - [ ] Do not save empty list?
+  - [X] Do not save empty
   - [ ] Remote data storage widget (for sharing notes)
   - [ ] Send a note via mail
