@@ -170,6 +170,8 @@ select.form-control:not([size]):not([multiple]) {
 
 .main-page {
   transition: all .5s ease-in-out;
+  max-width: 900px;
+  margin: auto;
   &.opened-sidebar {
     margin-right: 300px;
   }
@@ -206,7 +208,7 @@ select.form-control:not([size]):not([multiple]) {
   }
 }
 .grid-view-menu {
-  
+
 &:hover .grid-icon > span > span, &:focus .grid-icon > span > span, &.active .grid-icon > span > span {
   border-color:#fff;
 }
