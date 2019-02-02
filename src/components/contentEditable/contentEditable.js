@@ -45,31 +45,31 @@ class Editable extends React.Component {
     const keyCode = e.keyCode || e.which;
     if (e.altKey && (e.metaKey || e.ctrlKey)) {
       switch (keyCode) {
-        case 48 || (48+48): 
+        case 48 || (48+48):
           this.execCommand(e, 'formatblock', 'p');
           return;
-        case 49 || (49+48): 
+        case 49 || (49+48):
           this.execCommand(e, 'formatblock', 'h1');
           return;
-        case 50 || (50+48): 
+        case 50 || (50+48):
           this.execCommand(e, 'formatblock', 'h2');
           return;
-        case 51 || (51+48): 
+        case 51 || (51+48):
           this.execCommand(e, 'formatblock', 'h3');
           return;
-        case 52 || (52+48): 
+        case 52 || (52+48):
           this.execCommand(e, 'formatblock', 'h4');
           return;
-        case 53 || (53+48): 
+        case 53 || (53+48):
           this.execCommand(e, 'formatblock', 'h5');
           return;
-        case 54 || (54+48): 
+        case 54 || (54+48):
           this.execCommand(e, 'formatblock', 'h6');
           return;
-        case 86: 
+        case 86:
           this.props.toggleMode();
           return;
-        default: 
+        default:
 
       }
     }
@@ -209,7 +209,6 @@ class Editable extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div
         ref={this.editable}

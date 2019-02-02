@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import './notepad.scss';
 import App from './pages/Main';
 import AboutPage from './pages/About';
 import * as serviceWorker from './serviceWorker';
