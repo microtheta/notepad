@@ -5,7 +5,7 @@
   .icon-text {
     font-size: 26px;
     cursor: pointer;
-    padding: 5px 15px;
+    padding: 5px 10px;
     color: #d8d8d8;
   }
   .close-icon {
@@ -22,15 +22,16 @@
     top: 0;
     height: 100vh;
     width: 300px;
-    border-left: 1px solid #d8d8d8; 
+    border-left: 1px solid #d8d8d8;
     background: #fff;
     &.open {
       right: 0;
     }
   }
   .opener {
-    position: fixed;
-    right: 10px;
+		position: fixed;
+		z-index: 1;
+    right: 15px;
     top: 10px;
     &.close {
       right: -300px;

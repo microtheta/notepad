@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import './sidebar.scss';
 
 export default class Sidebar extends React.Component {
@@ -40,13 +40,13 @@ export default class Sidebar extends React.Component {
 
             <li className={"list-group-item list-group-item-action sticky-top py-2 "+ (this.props.darkMode ? 'text-light bg-dark' : 'bg-light')}>
               <span>Quick Edit</span>
-              <div 
+              <div
                 className="float-right icon-text close-icon"
                 onMouseDown={this.preventDefault}
                 onClick={onSideBar}>&times;</div>
             </li>
 
-            <li 
+            <li
               onClick={() => {this.sendEvent('h', true, false, false, 72)}}
               className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
@@ -55,7 +55,7 @@ export default class Sidebar extends React.Component {
               </small>
             </li>
 
-            <li 
+            <li
               onClick={() => {this.sendEvent('o', true, false, false, 79)}}
               className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
@@ -63,8 +63,8 @@ export default class Sidebar extends React.Component {
                 <div className="float-right">My Notes</div>
               </small>
             </li>
-            
-            <li 
+
+            <li
               onClick={() => {this.sendEvent('k', true, false, false, 75)}}
               className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <small className="d-block">
@@ -72,9 +72,9 @@ export default class Sidebar extends React.Component {
                 <div className="float-right">Create New</div>
               </small>
             </li>
-            
-            
-            
+
+
+
             <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('b', true, false, false, 66)}}
@@ -140,7 +140,7 @@ export default class Sidebar extends React.Component {
               </small>
             </li>
 
-            
+
 
             <li
               onMouseDown={this.preventDefault}
@@ -208,7 +208,7 @@ export default class Sidebar extends React.Component {
                 <div className="float-right">Print</div>
               </small>
             </li>
-            <li 
+            <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('z', true, false, false, 90)}}
               className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
@@ -217,7 +217,7 @@ export default class Sidebar extends React.Component {
                 <div className="float-right">Undo</div>
               </small>
             </li>
-            <li 
+            <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('y', true, false, false, 89)}}
               className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
@@ -227,7 +227,7 @@ export default class Sidebar extends React.Component {
               </small>
             </li>
 
-            <li 
+            <li
               onMouseDown={this.preventDefault}
               onClick={() => {this.sendEvent('v', true, false, true, 86)}}
               className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
@@ -237,7 +237,18 @@ export default class Sidebar extends React.Component {
               </small>
             </li>
 
-            <li 
+						<li
+              onMouseDown={this.preventDefault}
+              className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
+              <Link to="/about">
+                <small className="d-block">
+                  <kbd>About</kbd>
+                  <div className="float-right">About page</div>
+                </small>
+              </Link>
+            </li>
+
+            <li
               onMouseDown={this.preventDefault}
               className={"list-group-item list-group-item-action py-2 pointer " +(this.props.darkMode ? 'darkmode' : '')}>
               <a href="mailTo:mahesh@microtheta.com">

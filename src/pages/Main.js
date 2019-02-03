@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import MyNotes from './myNotes/myNotes';
 import Note from './Note';
@@ -7,10 +7,11 @@ import Note from './Note';
 
 const AppRouter = () => (
   <Router>
-      <>
+      <Switch>
       <Route path="/" exact component={MyNotes} />
-      <Route path="/:noteId" component={Note} />
-      </>
+			{/* <Route path="/about" exact component={AboutPage} /> */}
+      <Route path="/:noteId" exact component={Note} />
+      </Switch>
   </Router>
 );
 

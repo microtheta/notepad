@@ -19,7 +19,7 @@ export default class MyNotes extends React.Component {
       sortedNotes: this.getSortedSearchNotes(localStorage.getItem('searchText') || ''),
       view: localStorage.getItem('preferredView') || 'grid',
       searchText: localStorage.getItem('searchText') || '',
-      darkMode: window.localStorage.getItem('darkMode') || false
+      darkMode: window.localStorage.getItem('darkMode') === 'true'
     }
     if (window.gtag) {
       window.gtag('config', 'UA-72768481-3');
@@ -74,7 +74,7 @@ export default class MyNotes extends React.Component {
       }
       return 0;
     })
-    
+
     const filteredNotes = allNotes.filter((note) => {
       return (note.note.toLowerCase().indexOf(searchText.toLowerCase()) > -1)
     });
@@ -85,7 +85,7 @@ export default class MyNotes extends React.Component {
     const { sortedNotes, /* view, */ searchText } = this.state;
     if (!sortedNotes.length && !searchText) {
       return (
-        <Redirect to={{ pathname: "/1" }} />
+        <Redirect to={{ pathname: "/about" }} />
       )
     }
 
@@ -96,13 +96,13 @@ export default class MyNotes extends React.Component {
             <div className="col-sm-2 col-4 d-none d-md-flex">
               <h2 className="m-0">My Notes</h2>
             </div>
-                
+
                 <div className="col pr-0">
                   <input type="text" className={"form-control col " + (this.state.darkMode ? 'border-0' : '' )} value={searchText} onChange={this.handleSearch} placeholder="Search..." />
 
                   {/* <div className="btn-group col-4 col-sm-2 pr-0" role="group" aria-label="Basic example">
-                    
-                  <button type="button" 
+
+                  <button type="button"
                     onClick={() => this.setView('grid')}
                     className={"btn btn-outline-secondary grid-view-menu " + (view === 'grid' ? 'active' : '')}>
                       <span href="" className="grid-icon grid-icon--line2">
@@ -114,7 +114,7 @@ export default class MyNotes extends React.Component {
                         </span>
                       </span>
                     </button>
-                    
+
                     <button type="button"
                       onClick={() => this.setView('list')}
                       className={"btn btn-outline-secondary list-view-menu " + (view === 'list' ? 'active' : '')}>
@@ -124,12 +124,12 @@ export default class MyNotes extends React.Component {
                         <span className="menu-bar" />
                       </span>
                     </button>
-                    
+
                   </div>
                   */}
-                
 
-                
+
+
                 </div>
                 <div className="col-sm-3 col-md-2 col-4">
                   <Link to={'/' + cuid.slug()} className={"btn float-right btn-outline-"+ (this.state.darkMode ? 'light' : 'primary' )}>
@@ -137,10 +137,10 @@ export default class MyNotes extends React.Component {
                   <span className="d-inline d-sm-none"> + </span>
                   New</Link>
                 </div>
-              
+
 
           </div>
-          
+
           <div className="row">
             <TransitionGroup enter component={null}>
               {

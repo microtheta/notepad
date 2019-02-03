@@ -2,10 +2,13 @@
   cursor: pointer;
 }
 
+#page-row {
+	max-width: 900px;
+  margin: 0 auto;
+}
+
 .main-page {
   transition: all .5s ease-in-out;
-  max-width: 900px;
-  margin: 0 auto;
   &.opened-sidebar {
     margin-right: 300px;
   }
